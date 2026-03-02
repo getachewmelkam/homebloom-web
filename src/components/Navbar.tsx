@@ -2,30 +2,33 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  {
-    label: "Properties",
-    path: "/properties",
-    dropdown: [
-      { label: "All Properties", path: "/properties" },
-      { label: "Apartments", path: "/properties?type=apartment" },
-      { label: "Houses", path: "/properties?type=house" },
-      { label: "Villas", path: "/properties?type=villa" },
-      { label: "Townhouses", path: "/properties?type=townhouse" },
-      { label: "Penthouses", path: "/properties?type=penthouse" },
-    ],
-  },
-  { label: "Contact", path: "/contact" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.home, path: "/" },
+    { label: t.nav.about, path: "/about" },
+    {
+      label: t.nav.properties,
+      path: "/properties",
+      dropdown: [
+        { label: t.nav.allProperties, path: "/properties" },
+        { label: t.nav.apartments, path: "/properties?type=apartment" },
+        { label: t.nav.houses, path: "/properties?type=house" },
+        { label: t.nav.villas, path: "/properties?type=villa" },
+        { label: t.nav.townhouses, path: "/properties?type=townhouse" },
+        { label: t.nav.penthouses, path: "/properties?type=penthouse" },
+      ],
+    },
+    { label: t.nav.contact, path: "/contact" },
+  ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isHome ? "bg-charcoal/80 backdrop-blur-md" : "bg-primary shadow-lg"}`}>
@@ -71,18 +74,22 @@ const Navbar = () => {
               )}
             </div>
           ))}
+          <LanguageSwitcher />
           <Link
             to="/contact"
             className="bg-gold text-accent-foreground px-5 py-2 rounded-md text-sm font-semibold hover:brightness-110 transition-all"
           >
-            Get In Touch
+            {t.nav.getInTouch}
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden text-primary-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-4 lg:hidden">
+          <LanguageSwitcher />
+          <button className="text-primary-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
