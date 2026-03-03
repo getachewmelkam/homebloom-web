@@ -39,9 +39,9 @@ const Contact = () => {
               <p className="text-muted-foreground text-sm">{t.contactPage.reachOutDesc}</p>
 
               {[
-                { icon: MapPin, label: t.contactPage.address, value: "245 Park Avenue, Suite 1800\nNew York, NY 10167" },
-                { icon: Phone, label: t.contactPage.phone, value: "(212) 555-0180" },
-                { icon: Mail, label: t.contactPage.email, value: "hello@prestigeestates.com" },
+                { icon: MapPin, label: t.contactPage.address, value: "245 Addis Ababa, 1800\n Addis Ababa, ADD 10167" },
+                { icon: Phone, label: t.contactPage.phone, value: "(251) 98006364" },
+                { icon: Mail, label: t.contactPage.email, value: "melkamgetachew04@gmail.com" },
                 { icon: Clock, label: t.contactPage.hours, value: "Mon-Fri: 9AM-6PM\nSat: 10AM-4PM" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-4">
@@ -76,7 +76,7 @@ const Contact = () => {
           <div className="mt-16 bg-muted rounded-lg aspect-[16/6] flex items-center justify-center">
             <div className="text-center">
               <MapPin className="w-10 h-10 mx-auto mb-3 text-gold" />
-              <p className="text-muted-foreground font-medium">245 Park Avenue, New York, NY 10167</p>
+              <p className="text-muted-foreground font-medium">245 Addis Avenue, Addis Ababa, ADD 10167</p>
             </div>
           </div>
         </div>
