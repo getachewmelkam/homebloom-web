@@ -65,9 +65,9 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">{t.footer.contactUs}</h4>
             <div className="space-y-3 text-sm text-primary-foreground/70 mb-6">
-              <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-gold" /> 245 Park Avenue, New York, NY</p>
-              <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-gold" /> (212) 555-0180</p>
-              <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-gold" /> hello@prestigeestates.com</p>
+              <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-gold" /> 100 Africa Avenue, Addis Ababa, ADD</p>
+              <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-gold" /> (251) 980006364</p>
+              <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-gold" /> melkamgetachew04@gmail.com.com</p>
             </div>
             <h4 className="font-serif text-sm font-semibold mb-2">{t.footer.newsletter}</h4>
             <form className="flex" onSubmit={(e) => e.preventDefault()}>
